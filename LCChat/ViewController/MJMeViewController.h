@@ -16,4 +16,5 @@
 @property(nonatomic,strong)UILabel *textLabel;
 @property(nonatomic,strong)UIButton *addFriendButton;
 @property(nonatomic,strong)UIButton *removeButton;
+@property(nonatomic,strong)UIButton *exitButton;
 @end

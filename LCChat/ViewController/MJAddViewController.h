@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AVOSCloud/AVQuery.h"
 #import "MJUser.h"
-
+//实现块传AVUser
 typedef void(^returnUserBlock)(AVUser *user);
 
 @interface MJAddViewController : UIViewController

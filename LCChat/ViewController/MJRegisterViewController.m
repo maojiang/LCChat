@@ -44,28 +44,24 @@
 - (IBAction)registerUser:(id)sender {
     
     
-    MJUser *user=[MJUser user];
+    AVUser *user=[AVUser user];
+    [user setObject:self.userIdTextFied.text forKey:@""];
     user.username=self.userIdTextFied.text;
     user.password=self.pswdTextFied.text;
     user.email=self.email.text;
     user.mobilePhoneNumber=self.telPhone.text;
-    AVObject *myuser=[AVObject objectWithClassName:@"users"];
-    NSMutableDictionary *mutable=[NSMutableDictionary dictionary];
-    [mutable setValue:user.username forKey:@"username"];
-    [mutable setValue:user.password forKey:@"password"];
-    [mutable setObject:user.email forKey:@"email"];
-    //[mutable setObject:user.nibName forKey:@"nibName"];
-    [mutable setObject:user.mobilePhoneNumber forKey:@"mobilePhoneNumber"];
-    NSDictionary *dic=[NSDictionary dictionaryWithDictionary:mutable];
-    [myuser setObject:dic forKey:[NSString stringWithFormat:@"%@",user.username]];
+    //user.clientId=self.userIdTextFied.text;
+ __block   typeof(self) weakSelf=self;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"注册成功！！！");
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }
-        self.errorTipText.text=[NSString stringWithFormat:@"%@",error];
+        weakSelf.errorTipText.text=[NSString stringWithFormat:@"%@",error];
         
     }];
+       
+    
     
 
 }

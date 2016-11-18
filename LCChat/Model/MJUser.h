@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "AVOSCloud/AVUser.h"
+#import "ChatKit/LCCKUserDelegate.h"
 @interface MJUser : AVUser
-@property(nonatomic,copy)NSString *userId;
-@property(nonatomic,copy)NSString *pswd;
-@property(nonatomic,strong)NSURL *avatarURL;
-@property(nonatomic,strong)AVObject *object;
-- (instancetype)userWithUserId:(NSString *)userId name:(NSString *)name avatarURL:(NSURL *)avatarURL clientId:(NSString *)clientId;
+
+
+@property (nonatomic, copy, readwrite) NSString *clientId;
 +(instancetype)shareInstance;
 @end

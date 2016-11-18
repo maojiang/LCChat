@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MJAddViewController">
             <connections>
+                <outlet property="errorText" destination="4pu-Ny-9Wz" id="wqe-KK-4ex"/>
                 <outlet property="nameText" destination="9ay-cM-wVy" id="zad-52-8rO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,32 +36,47 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s74-tL-Igj">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="jxP-fW-Uml"/>
+                        <constraint firstAttribute="height" constant="40" id="zKk-pP-KKL"/>
+                    </constraints>
+                    <state key="normal" title="添加"/>
+                    <connections>
+                        <action selector="addFriend:" destination="-1" eventType="touchUpInside" id="0KR-as-45x"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pu-Ny-9Wz">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Eru-ua-x2A"/>
+                        <constraint firstAttribute="width" constant="168" id="p9n-w3-MPp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-cM-wVy">
                     <constraints>
-                        <constraint firstAttribute="width" constant="130" id="EzQ-VW-T9s"/>
+                        <constraint firstAttribute="width" constant="200" id="EzQ-VW-T9s"/>
                         <constraint firstAttribute="height" constant="30" id="whq-tG-4mQ"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s74-tL-Igj">
-                    <frame key="frameInset" minX="123" minY="198" width="98" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="添加"/>
-                    <connections>
-                        <action selector="addFriend:" destination="-1" eventType="touchUpInside" id="0KR-as-45x"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9ay-cM-wVy" firstAttribute="top" secondItem="f8d-Td-tJW" secondAttribute="bottom" constant="14" id="4AB-LX-KK9"/>
+                <constraint firstItem="4pu-Ny-9Wz" firstAttribute="top" secondItem="s74-tL-Igj" secondAttribute="bottom" constant="15" id="9N7-fE-biG"/>
+                <constraint firstItem="s74-tL-Igj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="198" id="OUo-zE-sBt"/>
                 <constraint firstItem="KSk-ML-GyN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="108" id="W8B-WL-pD4"/>
-                <constraint firstItem="9ay-cM-wVy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XSf-X4-DO9"/>
+                <constraint firstItem="s74-tL-Igj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aZt-qt-8IR"/>
+                <constraint firstItem="9ay-cM-wVy" firstAttribute="leading" secondItem="KSk-ML-GyN" secondAttribute="trailing" constant="-7" id="crB-zw-6pS"/>
                 <constraint firstItem="f8d-Td-tJW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="jDB-NS-gj7"/>
                 <constraint firstItem="KSk-ML-GyN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="64" id="jGu-j1-Rlv"/>
                 <constraint firstItem="f8d-Td-tJW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kin-Sa-Mwb"/>
+                <constraint firstItem="4pu-Ny-9Wz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w1I-kI-DH8"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="132.5"/>
         </view>

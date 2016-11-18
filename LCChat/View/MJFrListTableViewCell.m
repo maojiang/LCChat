@@ -29,7 +29,7 @@
     self.friUser=user;
     NSLog(@"%@",user);
     self.nameLabel.text=self.friUser.username;
-    self.nameLabel.backgroundColor=[UIColor redColor];
+    //self.nameLabel.backgroundColor=[UIColor redColor];
 }
 
 

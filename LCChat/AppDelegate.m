@@ -22,16 +22,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [LCChatKit setAppId:@"b7fjrqyowrNcYMMLNBQg1SRj-gzGzoHsz" appKey:@"zUVEuyFjWCzIpaV8KlczeLTj"];
-    [[LCChatKit sharedInstance] openWithClientId:@"568213372" callback:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
+    NSUserDefaults *def=[NSUserDefaults standardUserDefaults];
+    if ([def objectForKey:@"userId"]) {
+        AVUser *user=[AVUser user];
+        user.username=[def objectForKey:@"userId"];
+        user.password=[def objectForKey:@"pswd"];
+        [[LCChatKit sharedInstance] openWithClientId:[def objectForKey:@"userId"] callback:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"############open client succeeded");
+                
+                
+            }
+            else{
+                NSLog(@"%@",error);
+            }
             
-            
-        }
-        else{
-            NSLog(@"%@",error);
-        }
+        }];
         
-    }];
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                NSLog(@"login succeeded in degegete");
+            }
+        }];
+  
+    }
+    
     
     [AVOSCloud setApplicationId:@"b7fjrqyowrNcYMMLNBQg1SRj-gzGzoHsz" clientKey:@"zUVEuyFjWCzIpaV8KlczeLTj"];
     [AVAnalytics setAnalyticsEnabled:NO];
@@ -42,9 +57,6 @@
     
     
     [self configTabBarController];
-    [[LCChatKit sharedInstance] setFetchProfilesBlock:^(NSArray<NSString *> *userIds, LCCKFetchProfilesCompletionHandler completionHandler) {
-        
-    }];
     
 
     [[LCChatKit sharedInstance] setFetchProfilesBlock:^(NSArray<NSString *> *userIds, LCCKFetchProfilesCompletionHandler completionHandler) {
@@ -52,9 +64,19 @@
         for (NSString *userId in userIds) {
             //MyUser is a subclass of AVUser, conforming to the LCCKUserDelegate protocol.
             
-            AVQuery *query = [MJUser query];
+            AVQuery *query = [AVUser query];
             NSError *error = nil;
-            MJUser *object = (MJUser *)[query getObjectWithId:userId error:&error];
+            AVUser<LCCKUserDelegate> *object = (AVUser<LCCKUserDelegate> *)[query getObjectWithId:userId error:&error];
+            
+           /* AVQuery *query=[AVQuery queryWithClassName:@"_User"];
+            [query whereKey:@"username" equalTo:userId];
+            NSArray *arr=[query findObjects];
+            AVUser<LCCKUserDelegate> *cuUser=arr[0];
+            [userList addObject:cuUser];
+            completionHandler(userList, nil);
+            */
+
+
             if (error == nil) {
                 [userList addObject:object];
             } else {
@@ -63,16 +85,27 @@
                     return;
                 }
             }
+ 
         }
+        
         if (completionHandler) {
             completionHandler(userList, nil);
         }
+ 
     }
+ 
      ];
+    [[LCChatKit sharedInstance] setGenerateSignatureBlock:^(NSString *clientId, NSString *conversationId, NSString *action, NSArray *clientIds, LCCKGenerateSignatureCompletionHandler completionHandler) {
+        
+    }];
     
     
     
-    
+    [[LCChatKit sharedInstance] setDidSelectConversationsListCellBlock:^(NSIndexPath *indexPath, AVIMConversation *conversation, LCCKConversationListViewController *controller) {
+        NSLog(@"conversation selected");
+        LCCKConversationViewController *conversationVC = [[LCCKConversationViewController alloc] initWithConversationId:conversation.conversationId];
+        [controller.navigationController pushViewController:conversationVC animated:YES];
+    }];
     
     
     

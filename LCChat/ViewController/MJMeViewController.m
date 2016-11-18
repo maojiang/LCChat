@@ -28,6 +28,16 @@
 }
 
 
+-(UIButton *)exitButton{
+    if (!_exitButton) {
+        _exitButton=[UIButton buttonWithType:UIButtonTypeSystem];
+        _exitButton.frame=CGRectMake(40, 60, 65, 35);
+        [_exitButton setTitle:@"退出应用" forState:UIControlStateNormal];
+    }
+    return _exitButton;
+}
+
+
 -(UIImageView *)headImageView{
     if (!_headImageView) {
         _headImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view_Width, view_height)];
@@ -106,6 +116,22 @@
     [self.view addSubview:self.addFriendButton];
     [self.removeButton addTarget:self action:@selector(clickRemove:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.removeButton];
+    [self.exitButton addTarget:self action:@selector(exit:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.exitButton];
+}
+
+-(void)exit:(id)sender{
+    [[LCChatKit sharedInstance] closeWithCallback:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"close succeeded");
+        }
+    }];
+    [AVUser logOut];
+    
+
+    
+    
+    exit(0);
 }
 
 

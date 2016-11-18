@@ -24,6 +24,7 @@
 		80B53E591DD9E95A000DC8E9 /* boy.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 80B53E571DD9E95A000DC8E9 /* boy.jpeg */; };
 		80B53E5A1DD9E95A000DC8E9 /* gril.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 80B53E581DD9E95A000DC8E9 /* gril.jpeg */; };
 		80B53E5D1DD9EB9B000DC8E9 /* MJFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B53E5C1DD9EB9B000DC8E9 /* MJFriendListViewController.m */; };
+		80BD45281DDAB00E00AE8A10 /* MJConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BD45271DDAB00E00AE8A10 /* MJConversationViewController.m */; };
 		80BE7C261DD2FB2500967A24 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80BE7C251DD2FB2500967A24 /* user.plist */; };
 		80FC3D051DD1D881009F62D7 /* MJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FC3D041DD1D881009F62D7 /* MJUser.m */; };
 		80FC3D081DD20FCA009F62D7 /* MJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FC3D071DD20FCA009F62D7 /* MJTabBar.m */; };
@@ -61,6 +62,8 @@
 		80B53E581DD9E95A000DC8E9 /* gril.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gril.jpeg; sourceTree = "<group>"; };
 		80B53E5B1DD9EB9B000DC8E9 /* MJFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFriendListViewController.h; sourceTree = "<group>"; };
 		80B53E5C1DD9EB9B000DC8E9 /* MJFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFriendListViewController.m; sourceTree = "<group>"; };
+		80BD45261DDAB00E00AE8A10 /* MJConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConversationViewController.h; sourceTree = "<group>"; };
+		80BD45271DDAB00E00AE8A10 /* MJConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConversationViewController.m; sourceTree = "<group>"; };
 		80BE7C251DD2FB2500967A24 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
 		80FC3D031DD1D881009F62D7 /* MJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUser.h; sourceTree = "<group>"; };
 		80FC3D041DD1D881009F62D7 /* MJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUser.m; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				80FDC2D51DD5A3E0009EA859 /* MJAddViewController.xib */,
 				80B53E5B1DD9EB9B000DC8E9 /* MJFriendListViewController.h */,
 				80B53E5C1DD9EB9B000DC8E9 /* MJFriendListViewController.m */,
+				80BD45261DDAB00E00AE8A10 /* MJConversationViewController.h */,
+				80BD45271DDAB00E00AE8A10 /* MJConversationViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				801F55C61DCC6C2B0070FA86 /* main.m in Sources */,
 				80B53E551DD9E258000DC8E9 /* MJFrListTableViewCell.m in Sources */,
 				80B53E5D1DD9EB9B000DC8E9 /* MJFriendListViewController.m in Sources */,
+				80BD45281DDAB00E00AE8A10 /* MJConversationViewController.m in Sources */,
 				80FDC2D61DD5A3E0009EA859 /* MJAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

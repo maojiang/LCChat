@@ -9,16 +9,12 @@
 #import "MJAddViewController.h"
 
 @interface MJAddViewController ()
-@property (nonatomic,strong)NSMutableArray *queryArr;
+@property (weak, nonatomic) IBOutlet UILabel *errorText;
+
 @end
 
 @implementation MJAddViewController
--(NSMutableArray *)queryArr{
-    if (!_queryArr) {
-        _queryArr=[NSMutableArray array];
-    }
-   return _queryArr;
-}
+
 
 -(UIButton *)returnButton{
     if (!_returnButton) {
@@ -40,17 +36,34 @@
 
 
 - (IBAction)addFriend:(id)sender {
+    //查询添加好友
     NSString *name=self.nameText.text;
     AVQuery *query=[AVQuery queryWithClassName:@"_User"];
     [query whereKey:@"username" equalTo:name];
     NSArray *arr=[query findObjects];
-    AVUser *user=arr[0];
-    if (self.userBlock) {
+    if (arr.count>0) {
+        AVUser *user=arr[0];
+        AVUser *selfUser=[AVUser currentUser];
+        if (user.username==selfUser.username) {
+            self.errorText.text=@"不能添加自已";
+        }
+        
+        //块发送消息
         self.userBlock(user);
+        
+        AVUser *mySelfUser=[AVUser currentUser];
+        AVObject *friend=[[AVObject alloc] initWithClassName:[NSString stringWithFormat:@"friuserOf%@",mySelfUser.username]];
+        [friend setObject:user forKey:[NSString stringWithFormat:@"%@",user.username]];
+        [friend saveInBackground];
+        
+        
+        
         [self dismissViewControllerAnimated:YES completion:nil];
-
-    }else{
-        NSLog(@"pass value fail");
+    }
+    
+    else{
+        self.errorText.text=@"查无此人";
+        return;
     }
     
 
