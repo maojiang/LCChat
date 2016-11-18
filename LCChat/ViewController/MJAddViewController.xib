@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MJAddViewController">
+            <connections>
+                <outlet property="nameText" destination="9ay-cM-wVy" id="zad-52-8rO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好友添加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8d-Td-tJW">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="1A6-pL-NWk"/>
+                        <constraint firstAttribute="width" constant="100" id="qk2-s1-Pr8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSk-ML-GyN">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="06s-MT-jK6"/>
+                        <constraint firstAttribute="height" constant="21" id="nhs-kn-GSj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-cM-wVy">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="EzQ-VW-T9s"/>
+                        <constraint firstAttribute="height" constant="30" id="whq-tG-4mQ"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s74-tL-Igj">
+                    <frame key="frameInset" minX="123" minY="198" width="98" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="添加"/>
+                    <connections>
+                        <action selector="addFriend:" destination="-1" eventType="touchUpInside" id="0KR-as-45x"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9ay-cM-wVy" firstAttribute="top" secondItem="f8d-Td-tJW" secondAttribute="bottom" constant="14" id="4AB-LX-KK9"/>
+                <constraint firstItem="KSk-ML-GyN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="108" id="W8B-WL-pD4"/>
+                <constraint firstItem="9ay-cM-wVy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XSf-X4-DO9"/>
+                <constraint firstItem="f8d-Td-tJW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="jDB-NS-gj7"/>
+                <constraint firstItem="KSk-ML-GyN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="64" id="jGu-j1-Rlv"/>
+                <constraint firstItem="f8d-Td-tJW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kin-Sa-Mwb"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="132.5"/>
+        </view>
+    </objects>
+</document>
